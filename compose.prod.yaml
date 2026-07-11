@@ -11,8 +11,8 @@ services:
       - "443:443"
     environment:
       SERVER_NAME: dev.briantambara.com
-      SSL_CERTIFICATE: /etc/letsencrypt/live/jenkins.briantambara.com/fullchain.pem;
-      SSL_CERTIFICATE_KEY: /etc/letsencrypt/live/jenkins.briantambara.com/privkey.pem;
+      SSL_CERTIFICATE: /etc/letsencrypt/live/dev.briantambara.com/fullchain.pem
+      SSL_CERTIFICATE_KEY: /etc/letsencrypt/live/dev.briantambara.com/privkey.pem
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro,Z
       - /etc/letsencrypt:/etc/letsencrypt:ro,Z
