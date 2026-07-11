@@ -1,0 +1,17 @@
+include:
+  - compose.yaml
+services:
+  nginx:
+    image: nginx:stable-alpine
+    container_name: jenkins-nginx
+    restart: unless-stopped
+    depends_on:
+      - jenkins
+    ports:
+      - "8080:80"
+      - "8443:443"
+    environment:
+      SERVER_NAME: localhost
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro,Z
+      - ./nginx/ssl:/etc/nginx/certs:ro,Z
