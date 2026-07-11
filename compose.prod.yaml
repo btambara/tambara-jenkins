@@ -10,7 +10,9 @@ services:
       - "80:80"
       - "443:443"
     environment:
-      SERVER_NAME: briantambara.com
+      SERVER_NAME: dev.briantambara.com
+      SSL_CERTIFICATE: /etc/nginx/certs/nginx-localhost.crt 
+      SSL_CERTIFICATE_KEY: /etc/nginx/certs/nginx-localhost.key
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro,Z
       - certbot-etc:/etc/letsencrypt:ro
