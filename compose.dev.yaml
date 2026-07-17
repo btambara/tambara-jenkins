@@ -15,5 +15,5 @@ services:
       SSL_CERTIFICATE: /etc/nginx/certs/nginx-localhost.crt 
       SSL_CERTIFICATE_KEY: /etc/nginx/certs/nginx-localhost.key
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro,Z
+      - ./nginx/nginx.dev.conf:/etc/nginx/nginx.conf:ro,Z
       - ./nginx/ssl:/etc/nginx/certs:ro,Z
