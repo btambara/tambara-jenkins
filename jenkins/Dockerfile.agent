@@ -2,6 +2,8 @@ FROM jenkins/inbound-agent:latest-jdk21
 
 USER root
 
+ARG DOCKER_GID=998
+
 RUN apt-get update && apt-get install -y \
     ca-certificates \
     curl \
