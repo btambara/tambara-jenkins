@@ -11,7 +11,7 @@ services:
   agent:
     build:
       context: .
-      dockerfile: Dockerfile.agent
+      dockerfile: jenkins/Dockerfile.agent
     restart: unless-stopped
     depends_on:
       - jenkins
