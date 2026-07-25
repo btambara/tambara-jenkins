@@ -2,6 +2,8 @@ FROM jenkins/inbound-agent:latest-jdk21
 
 USER root
 
+ARG DOCKER_GID
+
 RUN apt-get update && apt-get install -y \
     ca-certificates \
     curl \
@@ -22,5 +24,8 @@ RUN apt-get update && apt-get install -y \
     docker-buildx-plugin \
     docker-compose-plugin && \
     rm -rf /var/lib/apt/lists/*
+
+RUN groupadd -g ${DOCKER_GID} docker || true && \
+    usermod -aG docker jenkins
 
 USER jenkins
