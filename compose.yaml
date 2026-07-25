@@ -12,8 +12,8 @@ services:
     build:
       context: .
       dockerfile: jenkins/Dockerfile.agent
-    args:
-      DOCKER_GID: 998
+      args:
+        DOCKER_GID: 998
     restart: unless-stopped
     depends_on:
       - jenkins
