@@ -9,7 +9,9 @@ services:
       - jenkins_home:/var/jenkins_home
 
   agent:
-    image: jenkins/inbound-agent:latest-jdk21
+    build:
+      context: .
+      dockerfile: Dockerfile.agent
     restart: unless-stopped
     depends_on:
       - jenkins
@@ -20,6 +22,7 @@ services:
       JENKINS_WEB_SOCKET: "true"
     volumes:
       - agent_home:/home/jenkins/agent
+      - /var/run/docker.sock:/var/run/docker.sock
 
 volumes:
   jenkins_home:
