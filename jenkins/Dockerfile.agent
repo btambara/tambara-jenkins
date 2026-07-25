@@ -25,7 +25,7 @@ RUN apt-get update && apt-get install -y \
     docker-compose-plugin && \
     rm -rf /var/lib/apt/lists/*
 
-RUN groupadd -g ${DOCKER_GID} docker || true && \
+RUN groupadd -g ${DOCKER_GID} docker && \
     usermod -aG docker jenkins
 
 USER jenkins
